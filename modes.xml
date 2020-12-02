@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modes>
+
+  <!-- dua → bum -->
+
+  <mode name="dua-bum" install="yes" gendebug="yes">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="dua-bum.automorf.bin"/>
+      </program>
+
+
+      <program name="cg-proc -w">
+        <file name="dua-bum.rlx.bin"/>
+      </program>
+      <program name="apertium-tagger -g $2">
+        <file name="dua-bum.prob"/>
+      </program>
+      <program name="apertium-pretransfer"/>
+      <program name="lt-proc -b">
+        <file name="dua-bum.autobil.bin"/>
+      </program>
+      <program name="lrx-proc -m">
+        <file name="dua-bum.autolex.bin"/>
+      </program>
+
+      <program name="apertium-transfer -b">
+        <file name="apertium-dua-bum.dua-bum.t1x"/>
+        <file name="dua-bum.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-dua-bum.dua-bum.t2x"/>
+        <file name="dua-bum.t2x.bin"/>
+      </program>
+      <program name="apertium-postchunk">
+        <file name="apertium-dua-bum.dua-bum.t3x"/>
+        <file name="dua-bum.t3x.bin"/>
+      </program>
+      <program name="lt-proc $1">
+        <file name="dua-bum.autogen.bin"/>
+      </program>
+
+      <program name="lt-proc -p">
+        <file name="dua-bum.autopgen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <!-- bum → dua -->
+
+  <mode name="bum-dua" install="yes" gendebug="yes">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="bum-dua.automorf.bin"/>
+      </program>
+
+
+      <program name="cg-proc -w">
+        <file name="bum-dua.rlx.bin"/>
+      </program>
+      <program name="apertium-tagger -g $2">
+        <file name="bum-dua.prob"/>
+      </program>
+
+      <program name="apertium-pretransfer"/>
+      <program name="lt-proc -b">
+        <file name="bum-dua.autobil.bin"/>
+      </program>
+      <program name="lrx-proc -m">
+        <file name="bum-dua.autolex.bin"/>
+      </program>
+
+      <program name="apertium-transfer -b">
+        <file name="apertium-dua-bum.bum-dua.t1x"/>
+        <file name="bum-dua.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-dua-bum.bum-dua.t2x"/>
+        <file name="bum-dua.t2x.bin"/>
+      </program>
+      <program name="apertium-postchunk">
+        <file name="apertium-dua-bum.bum-dua.t3x"/>
+        <file name="bum-dua.t3x.bin"/>
+      </program>
+      <program name="lt-proc $1">
+        <file name="bum-dua.autogen.bin"/>
+      </program>
+
+      <program name="lt-proc -p">
+        <file name="bum-dua.autopgen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+</modes>
+

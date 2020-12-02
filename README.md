@@ -1,1 +1,1 @@
-# apertium-dua-bum
+README
